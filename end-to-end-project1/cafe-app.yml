@@ -2,7 +2,7 @@
 - hosts: webservers
   tasks:
     - name: Authenticate with Docker Hub
-      command: sudo docker login -u "saidhuljohny2" -p "John@1234"
+      command: sudo docker login -u "dockerhub25" -p "docker@25"
       when: docker_hub_username is defined and docker_hub_password is defined
     - name: Clone repository
       git:
@@ -16,8 +16,8 @@
       args:
         chdir: /opt/docker/
     - name: Create tag to push image onto Docker Hub
-      command: sudo docker tag cafe-app:latest saidhuljohny2/cafe-app:latest
+      command: sudo docker tag cafe-app:latest dockerhub25/cafe-app:latest
 
     - name: Push Docker image
-      command: sudo docker push saidhuljohny2/cafe-app:latest
+      command: sudo docker push dockerhub25/cafe-app:latest
       when: docker_hub_username is defined and docker_hub_password is defined
