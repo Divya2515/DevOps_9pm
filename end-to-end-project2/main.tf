@@ -24,31 +24,6 @@ resource "google_compute_instance" "web-1" {
   tags = ["jenkins-master"]
 }
 
-resource "google_compute_instance" "web-2" {
-  name         = "jenkins-slave-vm"
-  machine_type = "n1-standard-2"
-  zone         = "us-west4-b"  # Change to your desired zone
-
-  boot_disk {
-    initialize_params {
-      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240109"
-      size  = 10
-      type  = "pd-balanced"
-    }
-  }
-
-  network_interface {
-    network = "default"  
-
-    access_config {
-      // Allocate a public IP to the instance
-    }
-  }
-
-  metadata_startup_script = file("slave_install.sh")
-
-  tags = ["jenkins-master"]
-}
 
 resource "google_compute_firewall" "firewall_1" {
   name    = "jenkins-vm-gke"
