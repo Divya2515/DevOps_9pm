@@ -8,7 +8,7 @@ pipeline {
     
     environment {
         SCANNER_HOME = tool 'sonarqube-scanner'
-        PROJECT_ID = 'my-devops-batch06-b'
+        PROJECT_ID = 'my-devops-project-408704'
         CLUSTER_NAME = 'my-gke-cluster'
         LOCATION = 'us-central1'
         CREDENTIALS_ID = 'kubernetes'
